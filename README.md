@@ -1,1 +1,2 @@
-# Primer ejercicio como academy en Empathy.co
+# Basic search experience consuming The Rick and Morty API
+First challenge as academy in Empathy.co
