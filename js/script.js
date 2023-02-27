@@ -2,6 +2,13 @@ const searchInput = document.getElementById('search');
 const resultsSection = document.getElementById('results');
 
 
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const apiUrl = 'https://rickandmortyapi.com/api/character/';
+
+let currentPage = 1;
+let totalPages;
+
 
 function debounce(func, wait = 500) {
     let timeout;
@@ -10,18 +17,52 @@ function debounce(func, wait = 500) {
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
 }
+
+function updatePageButtons() {
+    //desactivar prevBtn en la primera página
+    if (currentPage === 1) {
+        prevBtn.disabled = true;
+    } else {
+        prevBtn.disabled = false;
+    }
+    //desactivar nextBtn en la última página
+    if (currentPage === totalPages) {
+        nextBtn.disabled = true;
+    } else {
+        nextBtn.disabled = false;
+    }
+}
 function searchCharacters() {
-    const searchTerm = searchInput.value.trim();
-    let url = 'https://rickandmortyapi.com/api/character/';
-        if (searchTerm.length >= 2) {
-            url += `?name=${searchTerm}`;
+        const searchTerm = searchInput.value.trim();
+        const status = statusFilter.value;
+        let url = apiUrl;
+        if(searchTerm !== ""){
+            if (searchTerm.length >= 2) {
+                url += `?name=${searchTerm}`;
+            }
+            if (status !== 'all') {
+                url +=`&status=${status}` ;
+            }
+            url += `&page=${currentPage}`;
+
+        }
+        else{
+            if (status !== 'all') {
+                url +=`?status=${status}` ;
+                url += `&page=${currentPage}`;
+            }
+            else{
+                url += `?page=${currentPage}`;
+            }
+
         }
 
         fetch(url)
             .then(response => response.json())
             .then(data => {
-
                 resultsSection.innerHTML = '';
+                totalPages = data.info.pages;
+                updatePageButtons();
 
                 data.results.forEach(character => {
                     const characterArticle = document.createElement('article');
@@ -51,9 +92,22 @@ const processChange = debounce(() =>{
 });
 
 searchInput.addEventListener('input', processChange);
-
+prevBtn.addEventListener('click', () => {
+    currentPage--;
+    searchCharacters();
+});
+nextBtn.addEventListener('click', () => {
+    currentPage++;
+    searchCharacters();
+});
 
 //Para que se muestren todos los personajes al entrar en la página
 document.addEventListener('DOMContentLoaded', () => {
+    searchCharacters();
+});
+
+
+const statusFilter= document.getElementById('select');
+statusFilter.addEventListener('change', () =>{
     searchCharacters();
 });

@@ -15,6 +15,13 @@
         <aside>
             <h2>Filters</h2>
 
+            <label for="select"></label>
+            <select name="status" id="select">
+                <option value="all" selected>All</option>
+                <option value="alive">Alive</option>
+                <option value="dead" >Dead</option>
+                <option value="unknown">Unknown</option>
+            </select>
         </aside>
 
     </div>
@@ -26,10 +33,15 @@
 
             <section class="results" id="results">
             </section>
+            <div id="pagination">
+                <button id="prevBtn" disabled>Previous Page</button>
+                <button id="nextBtn">Next Page</button>
+            </div>
         </main>
     </div>
     <div class="footer">
         <footer>
+
             <p>&copy; 2023 Rick and Morty</p>
         </footer>
     </div>
