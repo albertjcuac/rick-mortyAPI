@@ -6,6 +6,8 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const apiUrl = 'https://rickandmortyapi.com/api/character/';
 
+const statusFilter= document.getElementById('select');
+
 let currentPage = 1;
 let totalPages;
 
@@ -66,18 +68,25 @@ function searchCharacters() {
 
                 data.results.forEach(character => {
                     const characterArticle = document.createElement('article');
-                    const characterName = document.createElement('h2');
+                    const characterName = document.createElement('h3');
                     const characterImage = document.createElement('img');
-                    const characterStatus = document.createElement('h3');
-
+                    const characterStatus = document.createElement('span');
+                    const informationContainer=document.createElement('div');
+                    characterArticle.classList.add('card')
+                    informationContainer.classList.add('container')
                     characterName.textContent = character.name;
                     characterStatus.textContent = character.status;
+                    characterStatus.classList.add(character.status)
+                    characterStatus.classList.add('statusLabel')
                     characterImage.src = character.image;
                     characterImage.alt = `${character.name} image`;
 
-                    characterArticle.appendChild(characterName);
                     characterArticle.appendChild(characterImage);
-                    characterArticle.appendChild(characterStatus);
+                    characterArticle.appendChild(informationContainer);
+
+                    informationContainer.appendChild(characterName)
+                    informationContainer.appendChild(characterStatus);
+
                     resultsSection.appendChild(characterArticle);
                 });
             })
@@ -107,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const statusFilter= document.getElementById('select');
+
 statusFilter.addEventListener('change', () =>{
     searchCharacters();
 });
