@@ -81,6 +81,7 @@ function searchCharacters() {
                     characterImage.src = character.image;
                     characterImage.alt = `${character.name} image`;
 
+
                     characterArticle.appendChild(characterImage);
                     characterArticle.appendChild(informationContainer);
 
