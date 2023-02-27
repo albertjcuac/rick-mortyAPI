@@ -1,1 +1,1 @@
-# rick-mortyAPI
+# Primer ejercicio como academy en Empathy.co
