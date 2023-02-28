@@ -1,0 +1,113 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.header {
+  grid-column: 1/6;
+  grid-row: 1/2;
+  text-align: center;
+}
+
+.pickle-gif {
+  width: 10%;
+  height: 10%;
+  float: left;
+}
+
+h1 {
+  padding: 1rem;
+  color: #04AA6D;
+}
+
+.sidebar {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.content {
+  grid-column: 2/6;
+  grid-row: 2/3;
+}
+
+.footer {
+  grid-column: 1/6;
+  grid-row: 3/4;
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+input[type=text] {
+  border: 0.1rem solid #ccc;
+  padding: 0.5rem;
+  width: 70%;
+}
+
+.results {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.Alive {
+  background-color: #04AA6D;
+}
+
+.Dead {
+  background-color: #f44336;
+}
+
+.unknown {
+  background-color: #ff9800;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4rem 8rem 0 rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.select {
+  border: 0.1rem solid #ccc;
+  padding: 0.5rem;
+  width: 50%;
+}
+
+.statusLabel {
+  color: white;
+  padding: 1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.5em;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Rick and Morty Character Search</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="wrapper">
-    <div class="box header">
+    <div class="header">
         <header>
-        <h1>Rick and Morty Character Search</h1>
+            <img class="pickle-gif" src="public/pickle-rick.gif" alt="Pickle Rick Gif" />
+            <h1>Rick and Morty Character Search</h1>
         </header>
     </div>
     <div class="box sidebar">
@@ -19,7 +20,7 @@
             <h2>Filter by status</h2>
 
             <label for="select"></label>
-            <select name="status" id="select">
+            <select class="select" name="status" id="select">
                 <option value="all" selected>All</option>
                 <option value="alive">Alive</option>
                 <option value="dead" >Dead</option>
