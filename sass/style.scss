@@ -2,12 +2,13 @@
 $green: #04AA6D;
 $red: #f44336;
 $orange: #ff9800;
-
+body {background-color: #B7E4F9FF;}
 .wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto 1fr auto;
   height: 100vh;
+
 }
 
 .box {
@@ -20,6 +21,8 @@ $orange: #ff9800;
   grid-column: 1 / 6;
   grid-row: 1 / 2;
   text-align: center;
+  background-color:#24325FFF;
+
 
 }
 .pickle-gif{
@@ -30,6 +33,7 @@ $orange: #ff9800;
 h1 {
   padding: 1rem;
   color:$green;
+
 }
 .sidebar {
   grid-column: 1 / 2;
@@ -104,6 +108,7 @@ input[type="text"] {
 .statusLabel {
   color: white;
   padding: 1rem;
+
 }
 .pagination {
   display: flex;

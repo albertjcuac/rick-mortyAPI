@@ -1,3 +1,7 @@
+body {
+  background-color: #b7e4f9;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -15,6 +19,7 @@
   grid-column: 1/6;
   grid-row: 1/2;
   text-align: center;
+  background-color: #24325f;
 }
 
 .pickle-gif {
