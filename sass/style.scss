@@ -2,6 +2,16 @@
 $green: #04AA6D;
 $red: #f44336;
 $orange: #ff9800;
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transition:opacity .50s ease-in;
+  }
+  to {
+    opacity: 1;
+  }
+}
 body {background-color: #B7E4F9FF;}
 .wrapper {
   display: grid;
@@ -25,6 +35,7 @@ body {background-color: #B7E4F9FF;}
 
 
 }
+
 .pickle-gif{
   width: 10%;
   height: 10%;
@@ -33,6 +44,8 @@ body {background-color: #B7E4F9FF;}
 h1 {
   padding: 1rem;
   color:$green;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 2.5rem;
 
 }
 .sidebar {
@@ -69,6 +82,7 @@ input[type="text"] {
   flex-wrap: wrap;
   justify-content: flex-start;
   gap:1rem;
+  animation: fade-in 1s ease-in-out;
 
 
 }
@@ -89,6 +103,20 @@ input[type="text"] {
 
 
 }
+.back-container{
+  display:none;
+  flex-direction:row;
+  justify-content: space-between;
+}
+.card:hover {
+  box-shadow: 0 8rem 16rem 0 rgba(0,0,0,0.3);
+  transform: scale(1.05);
+  .back-container{
+    display: flex;
+  }
+
+}
+
 .card img {
   max-width: 100%;
   height: auto;
@@ -97,6 +125,7 @@ input[type="text"] {
   display:flex;
   flex-direction:row;
   justify-content: space-between;
+
 
 }
 .select{
@@ -135,7 +164,5 @@ input[type="text"] {
     grid-column: 1 / 1;
     grid-row: 4 / 5;
   }
+
 }
-
-
-

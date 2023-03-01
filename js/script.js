@@ -7,7 +7,6 @@ const nextBtn = document.getElementById('nextBtn');
 const apiUrl = 'https://rickandmortyapi.com/api/character/';
 
 const statusFilter= document.getElementById('select');
-
 let currentPage = 1;
 let totalPages;
 
@@ -71,24 +70,33 @@ function searchCharacters() {
                     const characterName = document.createElement('h3');
                     const characterImage = document.createElement('img');
                     const characterStatus = document.createElement('span');
+                    const characterLocation = document.createElement('span');
                     const informationContainer=document.createElement('div');
+                    const backContainer=document.createElement('div');
                     characterArticle.classList.add('card')
                     informationContainer.classList.add('container')
+                    backContainer.classList.add('back-container')
                     characterName.textContent = character.name;
                     characterStatus.textContent = character.status;
+                    characterLocation.textContent = character.location.name;
                     characterStatus.classList.add(character.status)
                     characterStatus.classList.add('statusLabel')
                     characterImage.src = character.image;
                     characterImage.alt = `${character.name} image`;
 
+                    informationContainer.appendChild(characterName);
+                    informationContainer.appendChild(characterStatus);
 
                     characterArticle.appendChild(characterImage);
                     characterArticle.appendChild(informationContainer);
+                    characterArticle.appendChild(backContainer);
 
-                    informationContainer.appendChild(characterName)
-                    informationContainer.appendChild(characterStatus);
 
+
+                    backContainer.appendChild(characterLocation);
                     resultsSection.appendChild(characterArticle);
+
+
                 });
             })
             .catch(error => {
@@ -97,6 +105,9 @@ function searchCharacters() {
             });
 
 }
+
+
+
 const processChange = debounce(() =>{
     searchCharacters();
 });
