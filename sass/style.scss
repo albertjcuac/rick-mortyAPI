@@ -116,4 +116,26 @@ input[type="text"] {
   padding-top: 1.5em;
 
 }
+@media screen and (max-width: 767px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    min-height: 100vh;
+  }
+  .sidebar {
+    grid-column: 1 / 1;
+    grid-row: 2 / 3;
+    margin-bottom: 2rem;
+  }
+  .content {
+    grid-column: 1 / 1 ;
+    grid-row: 3 / 4;
+  }
+  .footer {
+    grid-column: 1 / 1;
+    grid-row: 4 / 5;
+  }
+}
+
+
 
